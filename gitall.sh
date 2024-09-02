@@ -6,8 +6,12 @@ BOLDGRAY="\e[1;37m"
 ENDCOLOR="\e[0m"
 
 for dir in ./*; do
-    cd "$dir"
-    echo -e "${BOLDGRAY} ---------- $(pwd) ---------- ${ENDCOLOR}"
-    git "$1"
-    cd $bdir
+    if [[ -d $dir ]]; then
+        if [ "$dir" != "$(pwd)" ]; then
+            cd "$dir"
+            echo -e "${BOLDGRAY} ---------- $(pwd) ---------- ${ENDCOLOR}"
+            git "$1"
+            cd $bdir
+	fi
+    fi
 done
