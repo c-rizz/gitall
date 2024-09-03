@@ -10,7 +10,7 @@ for dir in ./*; do
         if [ "$dir" != "$(pwd)" ]; then
             cd "$dir"
             echo -e "${BOLDGRAY} ---------- $(pwd) ---------- ${ENDCOLOR}"
-            git "$1"
+            git "$@"
             cd $bdir
 	fi
     fi
